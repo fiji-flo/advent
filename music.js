@@ -1,5 +1,5 @@
 "use strict";
-var audioPrefix: "music/";
+var audioPrefix = "music/";
 var songs = {
     1: {
         artist: "Sharon Van Etten",

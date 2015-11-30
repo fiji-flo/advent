@@ -16,7 +16,7 @@ AudioPlayer.prototype.pause = function () {
 };
 
 AudioPlayer.prototype.setTrack = function (name) {
-    this.main.src = settings.audioPrefix + name + "." + this.type;
+    this.main.src = audioPrefix + name + "." + this.type;
 };
 
 AudioPlayer.prototype.seek = function (percent) {

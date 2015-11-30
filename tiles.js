@@ -1,9 +1,7 @@
 "use strict";
 var bImage = null;
 var tiles = [];
-var settings = {
-    audioPrefix: "music/",
-    imgPrefix: "img/",
+var imgPrefix: "img/";
 };
 var mobile = !location.hash.includes('desktop') &&
     (navigator.userAgent.match(/Mobil/) !== null || location.hash.includes('mobile'));

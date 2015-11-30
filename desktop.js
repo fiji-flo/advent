@@ -79,7 +79,7 @@ var libDesktop = (function() {
             this.surprise = new Surprise(song, height, 24);
             this.back.appendChild(this.surprise.main);
             this.doorBackImage =Elem("img", "tile-artist-image");
-            this.doorBackImage.src = settings.imgPrefix + song.artistPicture;
+            this.doorBackImage.src = imgPrefix + song.artistPicture;
             this.doorBackImage.width = Math.floor(height * 0.98);
             this.doorBack.appendChild(this.doorBackImage);
         }

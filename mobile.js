@@ -52,7 +52,7 @@ var libMobile = (function() {
         if (song !== null) {
             setOnClick(this);
             this.backImage =Elem("img", "tile-artist-image-mobile");
-            this.backImage.src = settings.imgPrefix + song.artistPicture;
+            this.backImage.src = imgPrefix + song.artistPicture;
             this.backImage.width = Math.floor(height * 0.98);
             this.back.appendChild(this.backImage);
             this.surprise = new Surprise(song, height, 36);

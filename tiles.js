@@ -87,7 +87,6 @@ function createTiles(area) {
 function moveTiles() {
     var imageAR = bImage.oWidth / bImage.oHeight;
     var aR = sizes.screenWidth / sizes.screenHeight;
-    console.log(aR, imageAR);
     var top = sizes.vborder;
     var left = sizes.hborder;
     var width = sizes.screenWidth;

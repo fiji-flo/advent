@@ -10,7 +10,7 @@ var libDesktop = (function() {
             elem.style.transitionProperty = "transform";
             elem.style.transitionDuration = "2s";
             elem.style.transformOrigin = "left";
-            elem.style.transform = "rotate3d(0, 0, 0, 0deg)";
+            elem.style.transform = "rotateY(0deg)";
         }
         if (enableFancyDiv) {
             close(tile.doorBox);
@@ -26,7 +26,7 @@ var libDesktop = (function() {
             elem.style.transitionProperty = "transform";
             elem.style.transitionDuration = "2s";
             elem.style.transformOrigin = "left";
-            elem.style.transform = "rotate3d(0, -1, 0, 160deg)";
+            elem.style.transform = "rotateY(-160deg)";
         }
         if (enableFancyDiv) {
             open(tile.doorBox);

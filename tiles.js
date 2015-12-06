@@ -65,9 +65,9 @@ function BImage(file) {
 BImage.prototype.zoom = function (landscape) {
     if (landscape) {
         this.img.style.width = "100%";
-        this.img.style.height = "unset";
+        this.img.style.height = "auto";
     } else {
-        this.img.style.width = "unset";
+        this.img.style.width = "auto";
         this.img.style.height = "100%";
     }
 };

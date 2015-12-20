@@ -94,6 +94,7 @@ var libDesktop = (function() {
             this.main.appendChild(this.doorBack);
             this.main.appendChild(this.doorFront);
         }
+        closeDoor(this);
     }
 
     function toggleDoor(tile) {

@@ -113,6 +113,7 @@ function init() {
     main.style.layout = "block";
     main.style.width = "100%";
     main.style.height = "100%";
+    main.style.transformStyle = "preserve-3d";
     var img = new BImage("landscape_v.jpg");
     bImage = img;
     main.appendChild(img.main);

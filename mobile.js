@@ -99,8 +99,17 @@ var libMobile = (function() {
         this.textBox.main.appendChild(this.audioControl.main);
         this.main.appendChild(this.textBox.main);
     }
+
+    function Main() {
+        this.main = Div("area");
+        this.main.style.layout = "block";
+        this.main.style.width = "100%";
+        this.main.style.height = "100%";
+    }
+
     return {
         Sizes: Sizes,
         Tile: Tile,
+        Main: Main,
     };
 })();

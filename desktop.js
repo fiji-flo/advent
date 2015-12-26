@@ -136,8 +136,18 @@ var libDesktop = (function() {
         this.main.appendChild(this.textBox.main);
         this.main.appendChild(this.audioControl.main);
     }
+
+    function Main() {
+        this.main = Div("area");
+        this.main.style.layout = "block";
+        this.main.style.width = "100%";
+        this.main.style.height = "100%";
+        this.main.style.transformStyle = "preserve-3d";
+    }
+
     return {
         Sizes: Sizes,
         Tile: Tile,
+        Main: Main,
     };
 })();

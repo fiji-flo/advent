@@ -109,16 +109,12 @@ function moveTiles() {
 }
 
 function init() {
-    var main = Div("area");
-    main.style.layout = "block";
-    main.style.width = "100%";
-    main.style.height = "100%";
-    main.style.transformStyle = "preserve-3d";
+    var area = new lib.Main();
     var img = new BImage("landscape_v.jpg");
     bImage = img;
-    main.appendChild(img.main);
-    document.body.appendChild(main);
-    createTiles(main);
+    area.main.appendChild(img.main);
+    document.body.appendChild(area.main);
+    createTiles(area.main);
     moveTiles();
 }
 

@@ -29,7 +29,13 @@ class App {
   async init(cfg) {
     this.app.get("/settings.js", (req, res) => {
       settings(req.user)
-        .then(r => res.end(r))
+        .then(r => {
+          res.setHeader(
+            "content-type",
+            "application/javascript; charset=UTF-8"
+          );
+          res.end(r);
+        })
         .catch(e => {
           res.status(500);
           res.end();

@@ -36,6 +36,13 @@ const SCHEMA = {
     default: null,
     env: "A_PASSWORD",
     arg: "password"
+  },
+  adminpw: {
+    doc: "admin password",
+    format: "String",
+    default: null,
+    env: "A_ADMINPW",
+    arg: "adminpw"
   }
 };
 

@@ -1,15 +1,17 @@
 import jsonfile from "jsonfile";
 import { logger } from "./config";
 
-async function settings() {
+async function settings(user) {
   try {
     const date = new Date();
     date.setUTCHours(date.getUTCHours() + 1);
     const dom = date.getDate();
     const month = date.getMonth() + 1;
     const s = await jsonfile.readFile("../settings.json");
-    const songs = {};
-    if (month === 12) {
+    let songs = {};
+    if (user === "admin") {
+      songs = s.songs;
+    } else if (month === 12) {
       for (const [d, song] of Object.entries(s.songs)) {
         if (parseInt(d) <= dom) {
           songs[d] = song;

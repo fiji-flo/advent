@@ -18,14 +18,17 @@ class App {
     this.app.use(bodyParser.json());
     this.app.use(fileUpload());
     const basic = auth.basic({ realm: "advent" }, (user, pw, cb) =>
-      cb(user === cfg.user && pw == cfg.password)
+      cb(
+        (user === cfg.user && pw == cfg.password) ||
+          (user === "admin" && pw === cfg.adminpw)
+      )
     );
     this.app.use(auth.connect(basic));
   }
 
   async init(cfg) {
     this.app.get("/settings.js", (req, res) => {
-      settings()
+      settings(req.user)
         .then(r => res.end(r))
         .catch(e => {
           res.status(500);

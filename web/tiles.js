@@ -2,8 +2,6 @@
 var bImage = null;
 var tiles = [];
 var imgPrefix = "img/";
-var mobile = !location.hash.includes('desktop') &&
-    (navigator.userAgent.match(/Mobil/) !== null || location.hash.includes('mobile'));
 var numTiles = 24;
 var perm = (function () {
     var perm = [];
@@ -35,6 +33,8 @@ function size(tile, x, y) {
     tile.main.style.height = y + 'px';
     tile.doorCanvas.width = x;
     tile.doorCanvas.height = y;
+    tile.doorCanvas.style.width = x + 1 + 'px';
+    tile.doorCanvas.style.height = y + 1 + 'px';
     tile.number.style.fontSize = y * tile.fontScale + 'px';
     draw(tile);
 }
@@ -110,7 +110,7 @@ function moveTiles() {
 
 function init() {
     var area = new lib.Main();
-    var img = new BImage("landscape_v.jpg");
+    var img = new BImage(backgroundImage);
     bImage = img;
     area.main.appendChild(img.main);
     document.body.appendChild(area.main);
@@ -128,9 +128,11 @@ function ready(f) {
 if (!(mobile)) {
     var lib = libDesktop;
     var sizes = new lib.Sizes();
+    var backgroundImage = desktopBackgroundImage;
     ready(init);
 } else {
     var lib = libMobile;
     var sizes = new lib.Sizes();
+    var backgroundImage = mobileBackgroundImage;
     ready(init);
 }

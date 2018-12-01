@@ -154,7 +154,7 @@ body {
 }
 
 .progress-knob:hover {
-
+    z-index: 1;
 }
 
 .audio-control-box-mobile {

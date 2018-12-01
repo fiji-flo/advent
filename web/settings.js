@@ -1,4 +1,6 @@
 "use strict";
+var desktopBackgroundImage = "landscape_v.jpg";
+var mobileBackgroundImage = "landscape_v.jpg";
 var audioPrefix = "music/";
 var songs = {
     1: {

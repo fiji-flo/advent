@@ -26,3 +26,6 @@ function compWidth(elem) {
 function compHeight(elem) {
     return parseInt(window.getComputedStyle(elem).height);
 }
+
+var mobile = !location.hash.includes('desktop') &&
+    (navigator.userAgent.match(/Mobil/) !== null || location.hash.includes('mobile'));

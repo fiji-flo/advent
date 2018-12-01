@@ -1,8 +1,7 @@
 "use strict";
 var libDesktop = (function() {
     var enableFancyDiv = (function() {
-        var version = navigator.userAgent.match(/Firefox\/(\d\d)/);
-        return version !== null && parseInt(version.pop(), 10) >= 44;
+        return false;
     })();
 
     function closeDoor(tile) {

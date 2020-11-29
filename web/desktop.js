@@ -1,9 +1,5 @@
 "use strict";
 var libDesktop = (function() {
-    var enableFancyDiv = (function() {
-        return false;
-    })();
-
     function closeDoor(tile) {
         tile.main.classList.remove("open");
         tile.closed = true;
@@ -40,11 +36,9 @@ var libDesktop = (function() {
         this.main.style.perspective = "1000px";
         this.main.style.perspectiveOrigin = "50% 50%";
         this.main.style.transformStyle = "preserve-3d";
-        if (enableFancyDiv) {
-            this.doorBox = Div("tile-door-box");
-        }
+        this.doorBox = Div("tile-door-box");
         this.doorFront = Div("tile-door tile-door-front");
-        this.doorCanvas = Elem("canvas", "tile-canvas");
+        this.doorImg = Div("tile-canvas");
         this.doorBack = Div("tile-door tile-door-back");
         this.number = Div("tile-door-number");
         this.number.innerHTML = number.toString();
@@ -60,17 +54,12 @@ var libDesktop = (function() {
             this.doorBackImage.width = Math.floor(height * 0.98);
             this.doorBack.appendChild(this.doorBackImage);
         }
-        this.doorFront.appendChild(this.doorCanvas);
+        this.doorFront.appendChild(this.doorImg);
         this.doorFront.appendChild(this.number);
         this.main.appendChild(this.back);
-        if (enableFancyDiv) {
-            this.doorBox.appendChild(this.doorBack);
-            this.doorBox.appendChild(this.doorFront);
-            this.main.appendChild(this.doorBox);
-        } else {
-            this.main.appendChild(this.doorBack);
-            this.main.appendChild(this.doorFront);
-        }
+        this.doorBox.appendChild(this.doorBack);
+        this.doorBox.appendChild(this.doorFront);
+        this.main.appendChild(this.doorBox);
         closeDoor(this);
     }
 
@@ -86,12 +75,7 @@ var libDesktop = (function() {
         tile.onClickFunction = function (event) {
             toggleDoor(tile);
         };
-        if (enableFancyDiv) {
-            tile.doorBox.addEventListener("click", tile.onClickFunction);
-        } else {
-            tile.doorFront.addEventListener("click", tile.onClickFunction);
-            tile.doorBack.addEventListener("click", tile.onClickFunction);
-        }
+        tile.doorBox.addEventListener("click", tile.onClickFunction);
     }
 
     function SurpriseTextBox(artist, title, size) {

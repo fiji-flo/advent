@@ -13,28 +13,25 @@ var perm = (function () {
 })();
 
 function draw(tile) {
-    var ctx = tile.doorCanvas.getContext("2d");
     var iwidth = bImage.oWidth;
     var factor = iwidth / compWidth(bImage.img);
-    var width = compWidth(tile.doorCanvas);
-    var height = compHeight(tile.doorCanvas);
     var ix = parseInt(tile.main.style.left);
     var iy = parseInt(tile.main.style.top);
     ix *= factor;
     iy *= factor;
-    ctx.drawImage(bImage.img,
-                  ix, iy, width * factor, height * factor,
-                  0, 0, width, height);
+    var f = 1/factor;
+    tile.doorImg.style.backgroundImage = `url(${bImage.img.src})`;
+    tile.doorImg.style.backgroundSize = `${iwidth * f}px`;
+    tile.doorImg.style.backgroundPositionX = -f*ix + 'px';
+    tile.doorImg.style.backgroundPositionY = -f*iy + 'px';
 }
 
 function size(tile, x, y) {
     tile.main.style.width = x + 'px';
     tile.main.style.maxWidth = x + 'px';
     tile.main.style.height = y + 'px';
-    tile.doorCanvas.width = x;
-    tile.doorCanvas.height = y;
-    tile.doorCanvas.style.width = x + 1 + 'px';
-    tile.doorCanvas.style.height = y + 1 + 'px';
+    tile.doorImg.style.width = x + 1 + 'px';
+    tile.doorImg.style.height = y + 1 + 'px';
     tile.number.style.fontSize = y * tile.fontScale + 'px';
     draw(tile);
 }

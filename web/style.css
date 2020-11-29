@@ -44,11 +44,14 @@ body {
     transition-property: transform;
     transition-duration: 2s;
     transform-origin: left;
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) translate(0px);
 }
 
 .open .tile-door {
     transform: rotateY(-160deg);
+}
+.open-mobile .tile-door {
+    transform: translate(90vw);
 }
 
 

@@ -1,24 +1,12 @@
 "use strict";
 var libMobile = (function() {
     function closeDoor(tile) {
-        function close(elem) {
-            elem.style.transitionProperty = "transform";
-            elem.style.transitionDuration = "2s";
-            elem.style.transformOrigin = "left";
-            elem.style.transform = "translate(0px)";
-        }
-        close(tile.doorBox);
+        tile.main.classList.remove("open-mobile");
         tile.closed = true;
     }
 
     function openDoor(tile) {
-        function open(elem) {
-            elem.style.transitionProperty = "transform";
-            elem.style.transitionDuration = "2s";
-            elem.style.transformOrigin = "left";
-            elem.style.transform =" translate(" + sizes.tileWidth * 0.9 + "px)";
-        }
-        open(tile.doorBox);
+        tile.main.classList.add("open-mobile");
         tile.closed = false;
     }
 
@@ -41,9 +29,9 @@ var libMobile = (function() {
     function Tile(width, height, song, number) {
         this.fontScale = 0.4;
         this.main = Div("tile-box-mobile");
-        this.doorBox = Div("tile-door-box");
+        this.doorBox = Div("tile-door tile-door-box");
         this.doorFront = Div("tile-door-front");
-        this.doorCanvas = Elem("canvas", "tile-canvas");
+        this.doorImg = Div("tile-canvas");
         this.number = Div("tile-door-number");
         this.number.innerHTML = number.toString();
         this.back = Div("tile-back");
@@ -58,7 +46,7 @@ var libMobile = (function() {
             this.surprise = new Surprise(song, height, 36);
             this.back.appendChild(this.surprise.main);
         }
-        this.doorFront.appendChild(this.doorCanvas);
+        this.doorFront.appendChild(this.doorImg);
         this.doorFront.appendChild(this.number);
         this.main.appendChild(this.back);
         this.doorBox.appendChild(this.doorFront);

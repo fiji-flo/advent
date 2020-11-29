@@ -34,12 +34,21 @@ var libDesktop = (function() {
         this.fontScale = 0.3;
         this.main = Div("tile-box");
         this.doorBox = Div("tile-door-box");
-        this.doorBox.style.perspective = "1000px";
-        this.doorBox.style.perspectiveOrigin = "50% 50%";
-        this.doorBox.style.transformStyle = "preserve-3d";
-        this.doorFront = Div("tile-door tile-door-front");
+        this.doorFront = Div("tile-door-front");
+        this.doorBack = Div("tile-door-back");
+        if (ff) {
+          this.main.style.perspective = "1000px";
+          this.main.style.perspectiveOrigin = "50% 50%";
+          this.main.style.transformStyle = "preserve-3d";
+          this.doorBox.classList.add("tile-door");
+        } else {
+          this.doorBox.style.perspective = "1000px";
+          this.doorBox.style.perspectiveOrigin = "50% 50%";
+          this.doorBox.style.transformStyle = "preserve-3d";
+          this.doorFront.classList.add("tile-door");
+          this.doorBack.classList.add("tile-door");
+        }
         this.doorImg = Div("tile-canvas");
-        this.doorBack = Div("tile-door tile-door-back");
         this.number = Div("tile-door-number");
         this.number.innerHTML = number.toString();
         this.back = Div("tile-back");

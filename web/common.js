@@ -29,3 +29,4 @@ function compHeight(elem) {
 
 var mobile = !location.hash.includes('desktop') &&
     (navigator.userAgent.match(/Mobil/) !== null || location.hash.includes('mobile'));
+var ff = navigator.userAgent.match(/Firefox/) !== null;

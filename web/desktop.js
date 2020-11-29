@@ -33,10 +33,10 @@ var libDesktop = (function() {
     function Tile(width, height, song, number) {
         this.fontScale = 0.3;
         this.main = Div("tile-box");
-        this.main.style.perspective = "1000px";
-        this.main.style.perspectiveOrigin = "50% 50%";
-        this.main.style.transformStyle = "preserve-3d";
         this.doorBox = Div("tile-door-box");
+        this.doorBox.style.perspective = "1000px";
+        this.doorBox.style.perspectiveOrigin = "50% 50%";
+        this.doorBox.style.transformStyle = "preserve-3d";
         this.doorFront = Div("tile-door tile-door-front");
         this.doorImg = Div("tile-canvas");
         this.doorBack = Div("tile-door tile-door-back");

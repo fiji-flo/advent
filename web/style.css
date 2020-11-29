@@ -70,9 +70,6 @@ body {
     cursor: pointer;
 }
 
-.tile-artist-image-mobile {
-}
-
 .tile-artist-image {
     position: absolute;
     top: 50%;

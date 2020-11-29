@@ -28,7 +28,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    //text-shadow: 5px 5px 5px black;
     backface-visibility: hidden;
     cursor: pointer;
 }
@@ -40,6 +39,18 @@ body {
     vertical-align: middle;
     backface-visibility: hidden;
 }
+
+.tile-door  {
+    transition-property: transform;
+    transition-duration: 2s;
+    transform-origin: left;
+    transform: rotateY(0deg);
+}
+
+.open .tile-door {
+    transform: rotateY(-160deg);
+}
+
 
 .tile-canvas {
     position: absolute;

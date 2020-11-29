@@ -5,34 +5,12 @@ var libDesktop = (function() {
     })();
 
     function closeDoor(tile) {
-        function close(elem) {
-            elem.style.transitionProperty = "transform";
-            elem.style.transitionDuration = "2s";
-            elem.style.transformOrigin = "left";
-            elem.style.transform = "rotateY(0deg)";
-        }
-        if (enableFancyDiv) {
-            close(tile.doorBox);
-        } else {
-            close(tile.doorFront);
-            close(tile.doorBack);
-        }
+        tile.main.classList.remove("open");
         tile.closed = true;
     }
 
     function openDoor(tile) {
-        function open(elem) {
-            elem.style.transitionProperty = "transform";
-            elem.style.transitionDuration = "2s";
-            elem.style.transformOrigin = "left";
-            elem.style.transform = "rotateY(-160deg)";
-        }
-        if (enableFancyDiv) {
-            open(tile.doorBox);
-        } else {
-            open(tile.doorFront);
-            open(tile.doorBack);
-        }
+        tile.main.classList.add("open");
         tile.closed = false;
     }
 
@@ -65,9 +43,9 @@ var libDesktop = (function() {
         if (enableFancyDiv) {
             this.doorBox = Div("tile-door-box");
         }
-        this.doorFront = Div("tile-door-front");
+        this.doorFront = Div("tile-door tile-door-front");
         this.doorCanvas = Elem("canvas", "tile-canvas");
-        this.doorBack = Div("tile-door-back");
+        this.doorBack = Div("tile-door tile-door-back");
         this.number = Div("tile-door-number");
         this.number.innerHTML = number.toString();
         this.back = Div("tile-back");

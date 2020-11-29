@@ -4,7 +4,6 @@ import { logger } from "./config";
 async function settings(user) {
   try {
     const date = new Date();
-    date.setUTCHours(date.getUTCHours() + 1);
     const dom = date.getDate();
     const month = date.getMonth() + 1;
     const s = await jsonfile.readFile("../settings.json");

@@ -158,7 +158,9 @@ AudioControl.prototype.play = function () {
     audioPlayer.play();
     this.playing = true;
     this.active = true;
-    this.knob.enable();
+    if (!mobile) {
+        this.knob.enable();
+    }
 };
 
 AudioControl.prototype.togglePlayPause = function () {
@@ -172,7 +174,9 @@ AudioControl.prototype.togglePlayPause = function () {
 AudioControl.prototype.detach = function () {
     this.stop();
     this.active = false;
-    this.knob.disable();
+    if (!mobile) {
+        this.knob.disable();
+    }
 };
 
 AudioControl.prototype.update = function (percent) {
@@ -182,7 +186,9 @@ AudioControl.prototype.update = function (percent) {
 };
 
 AudioControl.prototype.set = function (percent) {
-    this.bar.style.width = percent + '%';
+    if (!mobile) {
+        this.bar.style.width = percent + '%';
+    }
 };
 
 function Knob(size, className, parent) {

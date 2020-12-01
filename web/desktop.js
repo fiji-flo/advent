@@ -50,7 +50,7 @@ var libDesktop = (function() {
         }
         this.doorImg = Div("tile-canvas");
         this.number = Div("tile-door-number");
-        this.number.innerHTML = number.toString();
+        this.number.textContent = number.toString();
         this.back = Div("tile-back");
         this.closed = true;
         size(this, width, height);
@@ -84,7 +84,12 @@ var libDesktop = (function() {
         tile.onClickFunction = function (event) {
             toggleDoor(tile);
         };
-        tile.doorBox.addEventListener("click", tile.onClickFunction);
+        if (ff) {
+          tile.doorBox.addEventListener("click", tile.onClickFunction);
+        } else {
+          tile.doorFront.addEventListener("click", tile.onClickFunction);
+          tile.doorBack.addEventListener("click", tile.onClickFunction);
+        }
     }
 
     function SurpriseTextBox(artist, title, size) {

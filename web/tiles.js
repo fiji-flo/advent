@@ -33,6 +33,8 @@ function size(tile, x, y) {
     tile.doorImg.style.width = x + 1 + 'px';
     tile.doorImg.style.height = y + 1 + 'px';
     tile.number.style.fontSize = y * tile.fontScale + 'px';
+    tile.number.style.width = x + 'px';
+    tile.number.style.height = y + 'px';
     draw(tile);
 }
 
